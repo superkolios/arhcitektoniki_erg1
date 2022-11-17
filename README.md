@@ -88,12 +88,22 @@ a. Χρησιμοποιήστε τα αρχεία αυτά για να επαλ�
   - **AtomicSimpleCPU**: Χρησειμοποιει atomic προσβαση στην μνήμη
   - **TimingSimpleCPU**:
 
+
 - **O3CPU**:  
 To O3CPU (Out-Of-Order CPU) είναι ένα λεπτομερές ISA-independent μοντέλο επεξεργαστή το οποίο παρέχει ένα πολύ ακριβές μοντέλο χρονισμού. Αποτελείται από 5 pipeline stages 
 (fetch, decode, rename, issue/execute/writeback, commit) και εκτελεί εντολές μόνο στο στάδιο execute, σε αντίθεση με άλλα μοντέλα που εκτελούν εντολές στην αρχή, ή στο τέλος του pipeline 
-και χρησιμοποιούν ένα "timing backend" για χρονισμό. Αυτή η σχεδίαση του επιτρέπει να έχει πολύ ακριβή και αξιόπιστο χρονισμό και να μην χάνεται το out-of-order load interaction.
- 
-- **MinorCPU**:
-- **KvmCPU**:
+και χρησιμοποιούν ένα "timing backend" για χρονισμό. Αυτή η σχεδίαση του επιτρέπει να έχει πολύ ακριβή και αξιόπιστο χρονισμό και να μην χάνεται το out-of-order load interaction.  
+
+
+- **TraceCPU**:  
+Το μοντέλο TraceCPU έχει ως στόχο του την διερεύνηση του performance της μνήμης του συστήματος (caches, interconnects και main memory) με έναν πιο γρήγορο τρόπο από το μοντέλο O3CPU, αλλά 
+διατηρώντας μια αποδεκτή ακρίβεια. Βασίζεται στην αναπαραγωγή timing and dependency annotated traces για μονοπύρηνα benchmarks τα οποία αντιστοιχίζονται σε 15 memory-sensitive SPEC2006 benchmarks και 
+μερικές HPC proxy εφαρμογές. Τα traces αυτά (elastic traces) δημιουργούνται από το Elastic Trace Probe το οποίο είναι συνδεδεμένο με το μοντέλο O3CPU.  
+
+
+- **MinorCPU**:  
+Το MinorCPU είναι ένα in-order μοντέλο με fixed pipeline αλλά παραμετροποιήσιμες δομές δεδομένων και συμπεριφορά εκτέλεσης εντολών. Προορίζεται για μοντελοποίηση επεξεργαστών με strict
+in-order execution behaviour και καθιστά δυνατή την οπτικοποίηση της θέσης μιας εντολής στο pipeline. Δεν υποστηρίζει παραλληλισμό και αποφεύγει χρήση δομών δεδομένων με μεγάλο αριθμό
+life-cycle information.
 
 a.
