@@ -88,7 +88,11 @@ a. Χρησιμοποιήστε τα αρχεία αυτά για να επαλ�
   - **AtomicSimpleCPU**: Χρησειμοποιει atomic προσβαση στην μνήμη
   - **TimingSimpleCPU**:
 
-- **O3CPU**:
+- **O3CPU**:  
+To O3CPU (Out-Of-Order CPU) είναι ένα λεπτομερές ISA-independent μοντέλο επεξεργαστή το οποίο παρέχει ένα πολύ ακριβές μοντέλο χρονισμού. Αποτελείται από 5 pipeline stages 
+(fetch, decode, rename, issue/execute/writeback, commit) και εκτελεί εντολές μόνο στο στάδιο execute, σε αντίθεση με άλλα μοντέλα που εκτελούν εντολές στην αρχή, ή στο τέλος του pipeline 
+και χρησιμοποιούν ένα "timing backend" για χρονισμό. Αυτή η σχεδίαση του επιτρέπει να έχει πολύ ακριβή και αξιόπιστο χρονισμό και να μην χάνεται το out-of-order load interaction.
+ 
 - **MinorCPU**:
 - **KvmCPU**:
 
