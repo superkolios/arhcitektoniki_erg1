@@ -59,6 +59,7 @@ a. Χρησιμοποιήστε τα αρχεία αυτά για να επαλ�
   eventq_index=0
   size=1048576
   ```
+
 - **cpu frequency**: `time_sync_period/system.cpu_cluster.clk_domain.clock (1000000000000/250)=4GHz`
 - **number of cores**: `system.cpu_cluster.cpusnumThreads=1` (μάλλον)
 - **memory type**: 
@@ -74,10 +75,10 @@ a. Χρησιμοποιήστε τα αρχεία αυτά για να επαλ�
 
 ## c. Ποιό είναι το συνολικό νούμερο των «committed» εντολών? Γιατί δεν είναι ίδιο το νούμερο με αυτό που παρουσιάζεται από στατιστικά που παρουσιάζονται από τον gem5?
 
-Δεν είμασττε σίγουροι αν θέλει τα commited instructios ή commited operations
+Δεν είμαστε σίγουροι αν θέλει τα committed instructions ή committed operations
 
-- Τα instructions commited είναι 5028 
-- Τα operations commited είναι 5834
+- Τα instructions committed είναι 5028 
+- Τα operations committed είναι 5834
 - simInsts 5028
 
 ### 3. Εκτός από τις πληροφορίες που παρέχονται σε αυτήν την άσκηση, είναι σημαντικό να μπορείτε να ανατρέχετε και να αναζητάτε πληροφορίες στη βιβλιογραφία. Έτσι χρησιμοποιώντας ως αρχή το site του gem5 (gem5.org) αναζητήστε πληροφορίες για τα διαφορετικά μοντέλα in-order CPUs που χρησιμοποιεί ο gem5 (hint: στο παράδειγμα χρησιμοποιήσατε το μοντέλο CPU: minor) και παραθέστε μια συνοπτική παράγραφο για καθένα από αυτά.
@@ -85,7 +86,7 @@ a. Χρησιμοποιήστε τα αρχεία αυτά για να επαλ�
 Τα μοντέλα CPU που υπάρχουν στον gem5 είναι **AtomicSimpleCPU**, **TimingSimpleCPU**, **O3CPU**, **MinorCPU** και **KvmCPU**.
 
 - SimpleCPU
-  - **AtomicSimpleCPU**: Χρησειμοποιει atomic προσβαση στην μνήμη
+  - **AtomicSimpleCPU**: Χρησιμοποιεί atomic προσβαση στην μνήμη
   - **TimingSimpleCPU**:
 
 
