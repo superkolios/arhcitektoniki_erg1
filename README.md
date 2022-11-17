@@ -1,5 +1,7 @@
 # Αρχιτεκτονική Υπολογιστών Εργαστήριο 1
+
 Ομάδα 3
+
 - Φίλιππος Τόλιας ΑΕΜ: 10252
 - Χρήστος-Μάριος Περδίκης ΑΕΜ: 10075
 
@@ -89,17 +91,31 @@ a. Χρησιμοποιήστε τα αρχεία αυτά για να επαλ�
 
 Τα μοντέλα CPU που υπάρχουν στον gem5 είναι **AtomicSimpleCPU**, **TimingSimpleCPU**, **O3CPU**, **MinorCPU** και **KvmCPU**.
 
-- **SimpleCPU**: Είναι ένα μοντέλο με in-order execution το οποίο συνήθως αχρησιμοποίητε όταν δεν χρειάζεται ένα πιο ακριβές μοντέλο. Δεν μπορεί να χρησιμοποιηθεί από μόνο του αλλά χρησιμοποιεί ενα από τα ακόλουθα υπομοντέλα:
-  - **AtomicSimpleCPU**: Χρησιμοποιεί atomic πρόσβαση στην μνήμη η οποία είναι λιγότερο ακριβής από την timing. Για να υπολογίσει το χρόνο πρόσβασης και χρησιμοποιεί εκτιμησεις.
-  - **TimingSimpleCPU**: Χρησιμοποιεί timing πρόσβαση στην μνήμη η οποία είναι η πιο ακριβής. Μόλις γίνεται κάποιο request στη μνήμη η προσομοίωση της CPU σταματάει και περιμένει κάποιο response για να συνεχίσει.
+- **SimpleCPU**:
+Είναι ένα μοντέλο με in-order execution το οποίο συνήθως αχρησιμοποίητε όταν δεν χρειάζεται ένα πιο ακριβές μοντέλο. Δεν μπορεί να χρησιμοποιηθεί από μόνο του αλλά χρησιμοποιεί ενα από τα ακόλουθα υπομοντέλα:
+  - **AtomicSimpleCPU**:
+  Χρησιμοποιεί atomic πρόσβαση στην μνήμη η οποία είναι λιγότερο ακριβής από την timing. Για να υπολογίσει το χρόνο πρόσβασης και χρησιμοποιεί εκτιμησεις.
+  - **TimingSimpleCPU**:
+  Χρησιμοποιεί timing πρόσβαση στην μνήμη η οποία είναι η πιο ακριβής. Μόλις γίνεται κάποιο request στη μνήμη η προσομοίωση της CPU σταματάει και περιμένει κάποιο response για να συνεχίσει.
 
-- **O3CPU**:
-- **MinorCPU**:
-- **KvmCPU**:
+- **O3CPU**:  
+To O3CPU (Out-Of-Order CPU) είναι ένα λεπτομερές ISA-independent μοντέλο επεξεργαστή το οποίο παρέχει ένα πολύ ακριβές μοντέλο χρονισμού. Αποτελείται από 5 pipeline stages 
+(fetch, decode, rename, issue/execute/writeback, commit) και εκτελεί εντολές μόνο στο στάδιο execute, σε αντίθεση με άλλα μοντέλα που εκτελούν εντολές στην αρχή, ή στο τέλος του pipeline 
+και χρησιμοποιούν ένα "timing backend" για χρονισμό. Αυτή η σχεδίαση του επιτρέπει να έχει πολύ ακριβή και αξιόπιστο χρονισμό και να μην χάνεται το out-of-order load interaction.  
+
+
+- **TraceCPU**:  
+Το μοντέλο TraceCPU έχει ως στόχο του την διερεύνηση του performance της μνήμης του συστήματος (caches, interconnects και main memory) με έναν πιο γρήγορο τρόπο από το μοντέλο O3CPU, αλλά 
+διατηρώντας μια αποδεκτή ακρίβεια. Βασίζεται στην αναπαραγωγή timing and dependency annotated traces για μονοπύρηνα benchmarks τα οποία αντιστοιχίζονται σε 15 memory-sensitive SPEC2006 benchmarks και 
+μερικές HPC proxy εφαρμογές. Τα traces αυτά (elastic traces) δημιουργούνται από το Elastic Trace Probe το οποίο είναι συνδεδεμένο με το μοντέλο O3CPU.  
+
+
+- **MinorCPU**:  
+Το MinorCPU είναι ένα in-order μοντέλο με fixed pipeline αλλά παραμετροποιήσιμες δομές δεδομένων και συμπεριφορά εκτέλεσης εντολών. Προορίζεται για μοντελοποίηση επεξεργαστών με strict
+in-order execution behaviour και καθιστά δυνατή την οπτικοποίηση της θέσης μιας εντολής στο pipeline. Δεν υποστηρίζει παραλληλισμό και αποφεύγει χρήση δομών δεδομένων με μεγάλο αριθμό
+life-cycle information.
 
 a.
 
-## Πηγές
-
-- <https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU>
-- <https://www.gem5.org/documentation/general_docs/memory_system/index.html#access-types>
+##### Sources
+- [https://www.gem5.org/documentation/general_docs/cpu_models/](https://www.gem5.org/documentation/general_docs/cpu_models)
