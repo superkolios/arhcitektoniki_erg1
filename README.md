@@ -154,7 +154,7 @@ life-cycle information.
       - hostSeconds: 8.79
       - simInsts: 225221
 
-  - minorCPU
+  - timingCPU
     - 1Ghz:
       - simSeconds: 0.000675
       - hostSeconds: 0.20
@@ -172,5 +172,28 @@ life-cycle information.
 Τα `simInsts` μένει σταθερό ανεξαρτήτως της συχνότητας.
 Τα αποτελέσματα είναι λογικά, αφού όταν η συχνότητα είναι μεγαλύτερη μία εντολή θα διαρκεί λιγότερο.
 
+- Μνήμη:
+  - minorCPU
+    - DDR3_2133_8x8:
+      - simSeconds: 0.000207  
+      - simTicks: 207399000
+      - hostSeconds: 0.67
+    - DDR4_2400_8x8:
+      - simSeconds: 0.000207
+      - simTicks: 207319000
+      - hostSeconds: 0.62
+
+  - timingCPU
+    - DDR3_2133_8x8:
+      - simSeconds: 0.000360  
+      - simTicks: 359925000
+      - hostSeconds: 0.20
+    - DDR4_2400_8x8:
+      - simSeconds: 0.000361
+      - simTicks: 360991000
+      - hostSeconds: 0.19
+    
+Ο λόγος που το `simSeconds` ειναι ιδιο αναμεσα στην DDR3 και DDR4 ειναι οτι το προγραμμα έχει πολυ μικρο cache miss rate (`system.cpu.dcache.overallMshrMissRate::total`=`0.003229`). ~~Παρολα αυτα μπορουμε να δουμε απο το `simTicks` ότι η DDR4 είναι πιο γρήγορη.~~
+    
 ##### Sources
 - [https://www.gem5.org/documentation/general_docs/cpu_models/](https://www.gem5.org/documentation/general_docs/cpu_models)
