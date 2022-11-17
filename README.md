@@ -108,3 +108,6 @@ in-order execution behaviour και καθιστά δυνατή την οπτι�
 life-cycle information.
 
 a.
+
+##### Sources
+- [https://www.gem5.org/documentation/general_docs/cpu_models/](https://www.gem5.org/documentation/general_docs/cpu_models)
