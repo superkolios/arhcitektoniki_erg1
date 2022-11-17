@@ -137,6 +137,40 @@ life-cycle information.
 τη δεύτερη. Αυτό συμβαίνει γιατί το μοντέλο MinorCPU είναι πιο ακριβό σε performance και πιο περίπλοκο από το TimingSimpleCPU αλλά πιο αποδοτικό όταν τρέχουμε το πρόγραμμά μας. Για αυτό
 στην προσομοίωση με MinorCPU, το πρόγραμμά μας έτρεξε και τελείωσε πιο γρήγορα, αλλά το gem5 έτρεξε για περισσότερη ώρα συνολικά.
 
+#### c. Αλλάξτε μια παράμετρο του επεξεργαστή και παρατηρήστε τα αποτελέσματα για τα δύο διαφορετικά CPU models. Δοκιμάστε να αλλάξετε την συχνότητα λειτουργίας και τη τεχνολογία της μνήμης που χρησιμοποιείτε. Παραθέστε και δικαιολογήσετε τα αποτελέσματα που παρατηρήσατε.
+
+- Frequency:
+  - minorCPU
+    - 1Ghz:
+      - simSeconds: 0.000353  
+      - hostSeconds: 0.63
+      - simInsts: 225221
+    - 4GHZ
+      - simSeconds: 0.000138
+      - hostSeconds: 0.63
+      - simInsts: 225221
+    - 10kHz
+      - simSeconds: 2.957730
+      - hostSeconds: 8.79
+      - simInsts: 225221
+
+  - minorCPU
+    - 1Ghz:
+      - simSeconds: 0.000675
+      - hostSeconds: 0.20
+      - simInsts: 225204
+    - 4GHZ
+      - simSeconds: 0.000205
+      - hostSeconds: 0.19
+      - simInsts: 225204
+    - 10kHz
+      - simSeconds: 62.800400
+      - hostSeconds: 89.18
+      - simInsts: 225204
+
+Παρατηρούμε ότι με αύξηση της συχνότητας μειώνεται ο χρόνος `simSeconds` ενώ το `hostSeconds` μένει ίδιο για ένα μεγάλο ευρος συχνοτήτων, για πολύ μικρές συχνότητες μεγαλώνει.
+Τα `simInsts` μένει σταθερό ανεξαρτήτως της συχνότητας.
+Τα αποτελέσματα είναι λογικά, αφού όταν η συχνότητα είναι μεγαλύτερη μία εντολή θα διαρκεί λιγότερο.
 
 ##### Sources
 - [https://www.gem5.org/documentation/general_docs/cpu_models/](https://www.gem5.org/documentation/general_docs/cpu_models)
