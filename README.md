@@ -198,3 +198,4 @@ life-cycle information.
 ##### Sources
 - [https://www.gem5.org/documentation/general_docs/cpu_models/](https://www.gem5.org/documentation/general_docs/cpu_models)
 - [https://www.gem5.org/documentation/general_docs/memory_system/index.html#access-types](https://www.gem5.org/documentation/general_docs/memory_system/index.html#access-types)
+- [https://stackoverflow.com/questions/53085048/how-to-compile-and-run-an-executable-in-gem5-syscall-emulation-mode-with-se-py/53085049?fbclid=IwAR2B1Ndb3JZCdUGAYdJu5f_TdgsQ49aBjg_Uevr5zfuk-jJsN3KApGAo0dc#53085049](https://stackoverflow.com/questions/53085048/how-to-compile-and-run-an-executable-in-gem5-syscall-emulation-mode-with-se-py/53085049?fbclid=IwAR2B1Ndb3JZCdUGAYdJu5f_TdgsQ49aBjg_Uevr5zfuk-jJsN3KApGAo0dc#53085049)
