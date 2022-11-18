@@ -197,3 +197,4 @@ life-cycle information.
     
 ##### Sources
 - [https://www.gem5.org/documentation/general_docs/cpu_models/](https://www.gem5.org/documentation/general_docs/cpu_models)
+- [https://www.gem5.org/documentation/general_docs/memory_system/index.html#access-types](https://www.gem5.org/documentation/general_docs/memory_system/index.html#access-types)
